@@ -1,0 +1,11 @@
+#Create Docker repo using the following command:
+sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+
+#Run the following command to install Docker CE on your server.
+sudo dnf install docker-ce -y
+
+#After the installation, start the Docker service and enable it to start at system reboot:
+sudo systemctl start docker && sudo systemctl enable docker
+
+#Next, verify the running status of the Docker service using the following command:
+sudo systemctl status docker
