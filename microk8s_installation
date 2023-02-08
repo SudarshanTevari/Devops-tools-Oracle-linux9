@@ -1,7 +1,7 @@
 #Microk8s can be installed by "snap" but its not avaliable by default.
 
 #install EPEL Repository:
-sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 sudo dnf upgrade
 
 #Install snapd:
@@ -20,10 +20,10 @@ reboot
 sudo snap install microk8s --classic
 
 #Start microk8s:
-sudo microk8s status --wait-ready
+microk8s status --wait-ready
 
 #Check status of microk8s, now it should be running state:
-sudo microk8s status
+microk8s status
 
 #To access microk8s other than root, provide user permission:
 sudo usermod -a -G microk8s $USER
@@ -31,3 +31,4 @@ sudo chown -f -R $USER ~/.kube
 
 #Check if core dns pods are running
 microk8s kubectl get pods -A
+microk8s enable dns
