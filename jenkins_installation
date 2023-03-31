@@ -1,15 +1,16 @@
-#Latest version of Jenkins need latest Java-jdk version(Now latest is jdk-11):
-sudo yum install jdk-11 -y
-
 #Create Jenkins repository:
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
 
 #Import the key & press y if asked for conformation and run upgrade:
-sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 sudo dnf upgrade
 
+#Latest version of Jenkins need latest Java-jdk version(Now latest is jdk-11):
+sudo dnf install -y java-11-openjdk
+
 #Install the jenknis:
-sudo dnf install jenkins
+sudo dnf install -y jenkins
 
 #Reload the Jenkins daemon:
 sudo systemctl daemon-reload
